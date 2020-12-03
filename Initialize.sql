@@ -120,34 +120,34 @@ create table Team
     team_id   int        not null,
     student_id varchar(8) not null,
     assginment_id     int,
-    primary key (team_id, student_id, due_id),
+    primary key (team_id, student_id, assginment_id),
     foreign key (student_id) references Student (student_id),
-    foreign key (due_id) references Due (due_id)
+    foreign key (assginment_id) references Assignment (assginment_id)
 )charset=UTF8;
 
-insert into Team(team_id, student_id, due_id)
+insert into Team(team_id, student_id, assginment_id)
 values (1, 'yuan226', 1);
-insert into Team(team_id, student_id, due_id)
+insert into Team(team_id, student_id, assginment_id)
 values (1, 'yuan226', 2);
-insert into Team(team_id, student_id, due_id)
+insert into Team(team_id, student_id, assginment_id)
 values (1, 'yuan226', 3);
-insert into Team(team_id, student_id, due_id)
+insert into Team(team_id, student_id, assginment_id)
 values (1, 'su170', 1);
-insert into Team(team_id, student_id, due_id)
+insert into Team(team_id, student_id, assginment_id)
 values (1, 'su170', 2);
-insert into Team(team_id, student_id, due_id)
+insert into Team(team_id, student_id, assginment_id)
 values (1, 'su170', 3);
-insert into Team(team_id, student_id, due_id)
+insert into Team(team_id, student_id, assginment_id)
 values (1, 'anishiho', 1);
-insert into Team(team_id, student_id, due_id)
+insert into Team(team_id, student_id, assginment_id)
 values (1, 'anishiho', 2);
-insert into Team(team_id, student_id, due_id)
+insert into Team(team_id, student_id, assginment_id)
 values (1, 'anishiho', 3);
-insert into Team(team_id, student_id, due_id)
+insert into Team(team_id, student_id, assginment_id)
 values (1, 'jmckeev', 1);
-insert into Team(team_id, student_id, due_id)
+insert into Team(team_id, student_id, assginment_id)
 values (1, 'jmckeev', 2);
-insert into Team(team_id, student_id, due_id)
+insert into Team(team_id, student_id, assginment_id)
 values (1, 'jmckeev', 3);
 
 create table Friend
