@@ -98,7 +98,7 @@ values ('hbenotma', 2020, 'Fall', 11374);
 
 create table Assignment
 (
-    assginment_id      int auto_increment primary key not null,
+    assignment_id      int auto_increment primary key not null,
     academic        numeric(4, 0)                  not null,
     semester    varchar(6)                     not null,
     CRN         numeric(5, 0)                  not null,
@@ -108,11 +108,11 @@ create table Assignment
     foreign key (academic, semester, CRN) references Course (academic, semester, CRN)
 )charset=UTF8;
 
-insert into Assignment(assginment_id, academic, semester, CRN, description, weight, due_date)
+insert into Assignment(assignment_id, academic, semester, CRN, description, weight, due_date)
 values (default, 2020, 'Fall', 11374, 'project part 1 due', null, 20200923235900);
-insert into Assignment(assginment_id, academic, semester, CRN, description, weight, due_date)
+insert into Assignment(assignment_id, academic, semester, CRN, description, weight, due_date)
 values (default, 2020, 'Fall', 11374, 'project part 2 due', null, 20201023000000);
-insert into Assignment(assginment_id, academic, semester, CRN, description, weight, due_date)
+insert into Assignment(assignment_id, academic, semester, CRN, description, weight, due_date)
 values (default, 2020, 'Fall', 11374, 'project part 3 due', null, 20201204000000);
 
 create table Team
