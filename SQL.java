@@ -10,12 +10,15 @@ import java.util.stream.IntStream;
  * @version 1.0
  * This file is the first version of the Group Due
  * Please use this with appropriate SQL file
+ * first change
  */
 public class SQL {
     static Statement statement;
     //TODO: Please fill in your user name and password, for password, a encryption is appreciated.
-    static final String USERNAME = "username";
-    static final String PASSWORD = "password";
+    static final String USERNAME = "yuan226";
+    static final String PASSWORD = "shujuku";
+   // static final String INSTANCE_CONNECTION_NAME ="striped-torus-292003:us-central1:cs348";
+   // static final String DATABASE_NAME ="p1012901937431-d9svp8@gcp-sa-cloud-sql.iam.gserviceaccount.com";
     static boolean bugged=false;
     /*
         Some initialized steps for SQL server
@@ -23,6 +26,7 @@ public class SQL {
     static {
         try {
             statement = DriverManager.getConnection("jdbc:mysql://mydb.itap.purdue.edu/" + USERNAME + "?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", USERNAME, PASSWORD).createStatement();
+            //statement=DriverManager.getConnection("jdbc:mysql:///"+DATABASE_NAME+"?cloudSqlInstance="+ INSTANCE_CONNECTION_NAME +"&socketFactory=com.google.cloud.sql.mysql.SocketFactory&user="+USERNAME+"&password="+PASSWORD).createStatement();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
             System.out.println("Make sure you have turned on VPN");
@@ -135,10 +139,14 @@ public class SQL {
         return answer;
     }
     public static void main(String[] args) throws SQLException {
-        clean();
-        run(new File("C:\\Users\\96585\\Downloads\\tables.sql"));
-        //run(new File("src\\q45.sql"));
-        run(new File("C:\\Users\\96585\\Downloads\\data.sql"));
+        ResultSet temp=getResult("Select * from Student;");
+        Arrays.stream(getColumns(temp)).forEach(System.out::println);
+
+        while (temp.next()){
+            System.out.println(temp.getObject(1));
+        }
+
+
         if(bugged){
             System.out.println("There is still a long way to go...");
         }else {
