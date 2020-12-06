@@ -1,0 +1,93 @@
+CREATE TABLE Student (
+    student_id VARCHAR(8) PRIMARY KEY NOT NULL,
+    name VARCHAR(30) NOT NULL,
+    Email VARCHAR(20),
+    GPA NUMERIC(3, 2),
+    CHECK (GPA BETWEEN 0 AND 4),
+    yearOfUnderGrads NUMERIC(1, 0),
+    CHECK (yearOfUnderGrads BETWEEN 0 AND 9),
+    yearOfMaster NUMERIC(1, 0),
+    CHECK (yearOfMaster BETWEEN 0 AND 9),
+    yearOfGraduate NUMERIC(1, 0),
+    CHECK (yearOfGraduate BETWEEN 0 AND 9)
+);
+
+CREATE TABLE Professor (
+    professor_id VARCHAR(8) PRIMARY KEY NOT NULL,
+    name VARCHAR(30) NOT NULL,
+    Email VARCHAR(20)
+);
+
+CREATE TABLE Course (
+    professor_id VARCHAR(8) NOT NULL,
+    major VARCHAR(4) NOT NULL,
+    id NUMERIC(5, 0) NOT NULL,
+    CHECK (id >= 10000),
+    year NUMERIC(4, 0) NOT NULL,
+    CHECK (year BETWEEN 2000 AND 2500),
+    semester VARCHAR(6) NOT NULL,
+    CHECK (semester in ('Spring', 'Fall', 'Summer')),
+    CRN NUMERIC(5, 0) NOT NULL,
+    PRIMARY KEY (year, semester, CRN),
+    FOREIGN KEY (professor_id) REFERENCES Professor (professor_id)
+);
+
+CREATE TABLE Takes (
+    student_id VARCHAR(8) NOT NULL,
+    year NUMERIC(4, 0) NOT NULL,
+    semester VARCHAR(6) NOT NULL,
+    CRN NUMERIC(5, 0) NOT NULL,
+    grade VARCHAR(2),
+    CHECK (grade in ('A+', 'A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D+', 'D', 'D-', 'F', 'S', 'P')),
+    PRIMARY KEY (student_id, year, semester, CRN),
+    FOREIGN KEY (student_id) REFERENCES Student (student_id),
+    FOREIGN KEY (year, semester, CRN) REFERENCES Course (year, semester, CRN)
+);
+
+CREATE TABLE Teaches (
+    professor_id VARCHAR(8) NOT NULL,
+    year NUMERIC(4, 0) NOT NULL,
+    semester VARCHAR(6) NOT NULL,
+    CRN NUMERIC(5, 0) NOT NULL,
+    PRIMARY KEY (professor_id, year, semester, CRN),
+    FOREIGN KEY (professor_id) REFERENCES Professor (professor_id),
+    FOREIGN KEY (year, semester, CRN) REFERENCES Course (year, semester, CRN)
+);
+ 
+CREATE TABLE TA (
+    student_id VARCHAR(8) NOT NULL,
+    year NUMERIC(4, 0) NOT NULL,
+    semester VARCHAR(6) NOT NULL,
+    CRN NUMERIC(5, 0) NOT NULL,
+    PRIMARY KEY (student_id, year, semester, CRN),
+    FOREIGN KEY (student_id) REFERENCES Student (student_id),
+    FOREIGN KEY (year, semester, CRN) REFERENCES Course (year, semester, CRN)
+);
+
+CREATE TABLE Due (
+    due_id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    year NUMERIC(4, 0) NOT NULL,
+    semester VARCHAR(6) NOT NULL,
+    CRN NUMERIC(5, 0) NOT NULL,
+    description VARCHAR(30),
+    weight NUMERIC(4, 2),
+    due_date  TIMESTAMP,
+    FOREIGN KEY (year, semester, CRN) REFERENCES Course (year, semester, CRN)
+);
+
+CREATE TABLE Team (
+    group_id INT NOT NULL,
+    student_id VARCHAR(8) NOT NULL,
+    due_id INT,
+    PRIMARY KEY (group_id, student_id, due_id),
+    FOREIGN KEY (student_id) REFERENCES Student (student_id),
+    FOREIGN KEY (due_id) REFERENCES Due (due_id)
+);
+
+CREATE TABLE Friend (
+    main VARCHAR(8) NOT NULL,
+    target VARCHAR(8) NOT NULL,
+    PRIMARY KEY (main, target),
+    FOREIGN KEY (main) REFERENCES Student (student_id),
+    FOREIGN KEY (target) REFERENCES Student (student_id)
+);
