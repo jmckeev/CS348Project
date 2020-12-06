@@ -1,0 +1,51 @@
+INSERT INTO Student VALUES
+("anishiho", "Ayaka Nishihori", "anishiho@purdue.edu", "NULL", 4, 0, 0),
+("jmckeev", "Riley McKeever", "jmckeev@purdue.edu", "3.66", 3, 0, 0),
+("luo227", "Dan Luo", "luo227", "3.77", 0, 2, 0),
+("su170", "Zhenhuan Su", "su170@purdue.edu", "NULL", 4, 0, 0),
+("yuan226", "Yizhen Yuan", "yuan226@purdue.edu", "3.75", 4, 1, 0);
+
+INSERT INTO Professor VALUES
+("hbenotma", "Hisham Benotman", "hbenota@purdue.edu"),
+("jblocki", "Jeremiah Blocki", "jblocki@purdue.edu"),
+("turkstra", "Jeffrey Turkstra", "turkstra@purdue.edu");
+
+INSERT INTO Course VALUES
+("hbenotma", "CS", "34800", 2020, "Fall", "11374"),
+("jblocki", "CS", "38100", 2020, "Fall", "13247");
+
+INSERT INTO Takes VALUES
+("anishiho", 2020, "Fall", "11374", "NULL"),
+("jmckeev", 2020, "Fall", "11374", "NULL"),
+("su170", 2020, "Fall", "11374", "NULL"),
+("yuan226", 2020, "Fall", "11374", "NULL");
+
+INSERT INTO Teaches VALUES
+("hbenotma", 2020, "Fall", "11374");
+
+INSERT INTO TA VALUES
+("luo227", 2020, "Fall", "11374");
+
+INSERT INTO Due VALUES
+(1, 2020, "Fall", "11374", "projectpart1due", "NULL", "2020-09-1100:00:00"),
+(2, 2020, "Fall", "11374", "projectpart2due", "NULL", "2020-10-2300:00:00"),
+(3, 2020, "Fall", "11374", "projectpart3due", "NULL", "2020-12-0400:00:00");
+
+INSERT INTO Team VALUES
+(1, "anishiho", 1),
+(1, "jmckeev", 1),
+(1, "su170", 1),
+(1, "yuan226", 1),
+(1, "anishiho", 2),
+(1, "jmckeev", 2),
+(1, "su170", 2),
+(1, "yuan226", 2),
+(1, "anishiho", 3),
+(1, "jmckeev", 3),
+(1, "su170", 3),
+(1, "yuan226", 3);
+
+INSERT INTO Friend VALUES
+("yuan226", "anishiho"),
+("yuan226", "jmckeev"),
+("yuan226", "su170");
