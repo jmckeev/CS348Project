@@ -21,6 +21,9 @@ public class Initializer {
     private ArrayList<ArrayList<ArrayList<String>>> dueDatesAssignments;
     private ArrayList<String> friendList;
     private ArrayList<ArrayList<ArrayList<String>>> friendListClasses;
+    private ArrayList<ArrayList<String>> newFriends;
+    private ArrayList<String> updates;
+    private String name;
 
     public String option;
 
@@ -44,6 +47,8 @@ public class Initializer {
         this.dueDatesAssignments = new ArrayList<>();
         this.friendList = new ArrayList<>();
         this.friendListClasses = new ArrayList<>();
+        this.newFriends = new ArrayList<>();
+        this.updates = new ArrayList<>();
         //this.loadDatabase();
     }
 
@@ -158,7 +163,10 @@ public class Initializer {
         loader.cleanup();
     }
 
-    private String addSpaces(String string) {
+    public String addSpaces(String string) {
+        if (string.equals("RileyMcKeever")) {
+            return "Riley McKeever";
+        }
         if (string.toUpperCase().equals(string)) {
             return string;
         }
@@ -173,8 +181,16 @@ public class Initializer {
     }
 
     public void cleanup() {
+        this.updateAll();
         //this.writeToFile();
         this.connection.cleanup();
+    }
+
+    private void updateAll() {
+        for (int i = 0; i < this.updates.size(); i++) {
+            //this.query.sendQuery(this.updates.get(i));
+            System.out.println(this.updates.get(i));
+        }
     }
 
     public Query getQuery() {
@@ -232,5 +248,29 @@ public class Initializer {
 
     public void setFriendListClasses(ArrayList<ArrayList<ArrayList<String>>> friendListClasses) {
         this.friendListClasses = friendListClasses;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public ArrayList<ArrayList<String>> getNewFriends() {
+        return newFriends;
+    }
+
+    public void setNewFriends(ArrayList<ArrayList<String>> newFriends) {
+        this.newFriends = newFriends;
+    }
+
+    public ArrayList<String> getUpdates() {
+        return updates;
+    }
+
+    public void setUpdates(ArrayList<String> updates) {
+        this.updates = updates;
     }
 }

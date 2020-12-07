@@ -7,18 +7,19 @@ public class StudentDriver extends JFrame {
     private JLabel message;
     private JRadioButton userClasses;
     private JRadioButton friendSchedule;
-    private JRadioButton addRemove;
+    private JRadioButton add;
+    private JRadioButton remove;
     private JButton logout;
     private JButton next;
     private ButtonGroup buttonGroup;
     private Initializer initializer;
     private StudentHandler studentHandler;
-    private String name;
 
     public enum STUDENT_STATE {
         userClasses,
         friendSchedule,
-        addRemove
+        add,
+        remove
     }
 
     public StudentDriver(Initializer initializer) {
@@ -27,15 +28,16 @@ public class StudentDriver extends JFrame {
         this.setTitle("Homepage");
         this.jPanel = new JPanel();
         this.buttonGroup = new ButtonGroup();
-        this.name = this.initializer.getQuery().getTableColumn("SELECT name FROM Student WHERE student_id = \"" + this.initializer.getUsername() +  "\";", "name").get(1);
-        this.message = new JLabel("Welcome back, " + name + ". What would you like to do today?");
+        this.message = new JLabel("Welcome back, " + this.initializer.getName() + ". What would you like to do today?");
         this.userClasses = new JRadioButton("My Classes");
         this.userClasses.setActionCommand("My Classes");
         this.userClasses.setSelected(true);
-        this.friendSchedule = new JRadioButton("View Friends' Schedules");
-        this.friendSchedule.setActionCommand("View Friends' Schedules");
-        this.addRemove = new JRadioButton("Add/Remove Friend");
-        this.addRemove.setActionCommand("Add/Remove Friend");
+        this.friendSchedule = new JRadioButton("View Friends' Classes");
+        this.friendSchedule.setActionCommand("View Friends' Classes");
+        this.add = new JRadioButton("Add Friend");
+        this.add.setActionCommand("Add Friend");
+        this.remove = new JRadioButton("Remove Friend");
+        this.remove.setActionCommand("Remove Friend");
         this.logout = new JButton("Logout");
         this.next = new JButton("Next");
 
@@ -60,8 +62,10 @@ public class StudentDriver extends JFrame {
         this.userClasses.setLocation(20, 70);
         this.friendSchedule.setSize(400, 20);
         this.friendSchedule.setLocation(20, 95);
-        this.addRemove.setSize(400, 20);
-        this.addRemove.setLocation(20, 120);
+        this.add.setSize(400, 20);
+        this.add.setLocation(20, 120);
+        this.remove.setSize(400, 20);
+        this.remove.setLocation(20, 145);
         this.logout.setSize(80, 20);
         this.logout.setLocation(250, 330);
         this.next.setSize(80, 20);
@@ -72,7 +76,8 @@ public class StudentDriver extends JFrame {
         this.jPanel.add(this.message);
         this.jPanel.add(this.userClasses);
         this.jPanel.add(this.friendSchedule);
-        this.jPanel.add(this.addRemove);
+        this.jPanel.add(this.add);
+        this.jPanel.add(this.remove);
         this.jPanel.add(this.logout);
         this.jPanel.add(this.next);
     }
@@ -80,7 +85,8 @@ public class StudentDriver extends JFrame {
     private void addButtons() {
         this.buttonGroup.add(this.userClasses);
         this.buttonGroup.add(this.friendSchedule);
-        this.buttonGroup.add(this.addRemove);
+        this.buttonGroup.add(this.add);
+        this.buttonGroup.add(this.remove);
     }
 
     private void addListeners() {
@@ -98,10 +104,12 @@ public class StudentDriver extends JFrame {
                 String temp = buttonGroup.getSelection().getActionCommand();
                 if (temp.equals("My Classes")) {
                     studentHandler.handle(STUDENT_STATE.userClasses);
-                } else if (temp.equals("View Friends' Schedules")) {
+                } else if (temp.equals("View Friends' Classes")) {
                     studentHandler.handle(STUDENT_STATE.friendSchedule);
-                } else if (temp.equals("Add/Remove Friend")) {
-                    studentHandler.handle(STUDENT_STATE.addRemove);
+                } else if (temp.equals("Add Friend")) {
+                    studentHandler.handle(STUDENT_STATE.add);
+                } else if (temp.equals("Remove Friend")) {
+                    studentHandler.handle(STUDENT_STATE.remove);
                 }
             }
         });

@@ -18,6 +18,11 @@ public class Query {
         return new String(this.connection.getBaos().toByteArray());
     }
 
+    public void sendQueryNoWait(String command) {
+        this.connection.getShellStream().println(command);
+        this.connection.getShellStream().flush();
+    }
+
     public ArrayList<String> getColumns(String output) {
         if (output.contains("Empty set")) {
             return null;
@@ -95,5 +100,18 @@ public class Query {
             }
         }
         return null;
+    }
+
+    public void prepare(String name, String command) {
+        this.sendQuery("PREPARE " + name + " FROM '" + command + "';");
+    }
+
+    public void setVariables(String variables) {
+        String[] individualVariables = variables.split(";");
+        for (int i = 0; i < individualVariables.length; i++) {
+            System.out.println(individualVariables.length);
+            String[] tokens = individualVariables[i].split(",");
+            this.sendQuery("SET " + tokens[0] + " = '" + tokens[1] + "';");
+        }
     }
 }

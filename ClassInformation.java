@@ -29,6 +29,7 @@ public class ClassInformation extends JFrame{
         }
         this.jPanel = new JPanel();
         this.jPanel.setLayout(null);
+        this.setTitle("Class Information");
         this.setLocationRelativeTo(null);
         this.setSizeLocation();
         this.addAll();

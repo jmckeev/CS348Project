@@ -11,9 +11,11 @@ public class StudentHandler {
         if (state == StudentDriver.STUDENT_STATE.userClasses) {
             UserClasses userClasses = new UserClasses(this);
         } else if (state == StudentDriver.STUDENT_STATE.friendSchedule) {
-            //TODO: write FriendSchedule class (GUI) and instantiate an object here
-        } else if (state == StudentDriver.STUDENT_STATE.addRemove) {
-            //TODO: write FriendSchedule class (GUI) and instantiate an object here
+            FriendSchedule friendSchedule = new FriendSchedule(this);
+        } else if (state == StudentDriver.STUDENT_STATE.add) {
+            Add add = new Add(this);
+        } else if (state == StudentDriver.STUDENT_STATE.remove) {
+            Remove remove = new Remove(this);
         }
     }
 
