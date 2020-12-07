@@ -24,11 +24,11 @@ public class StudentDriver extends JFrame {
     public StudentDriver(Initializer initializer) {
         this.initializer = initializer;
         this.studentHandler = new StudentHandler(this, this.initializer);
-        this.setTitle("Bookstore Database");
+        this.setTitle("Homepage");
         this.jPanel = new JPanel();
         this.buttonGroup = new ButtonGroup();
-        //this.name = this.initializer.getQuery().getTable();
-        this.message = new JLabel("Welcome back, " + name + "What would you like to do today?");
+        this.name = this.initializer.getQuery().getTableColumn("SELECT name FROM Student WHERE student_id = \"" + this.initializer.getUsername() +  "\";", "name").get(1);
+        this.message = new JLabel("Welcome back, " + name + ". What would you like to do today?");
         this.userClasses = new JRadioButton("My Classes");
         this.userClasses.setActionCommand("My Classes");
         this.userClasses.setSelected(true);
@@ -54,8 +54,8 @@ public class StudentDriver extends JFrame {
     }
 
     private void setSizeLocation() {
-        this.message.setSize(200, 20);
-        this.message.setLocation(130, 10);
+        this.message.setSize(400, 20);
+        this.message.setLocation(80, 10);
         this.userClasses.setSize(400, 20);
         this.userClasses.setLocation(20, 70);
         this.friendSchedule.setSize(400, 20);

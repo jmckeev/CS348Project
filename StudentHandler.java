@@ -16,4 +16,8 @@ public class StudentHandler {
             //TODO: write FriendSchedule class (GUI) and instantiate an object here
         }
     }
+
+    public Initializer getInitializer() {
+        return this.initializer;
+    }
 }

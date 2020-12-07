@@ -14,7 +14,7 @@ public class Authentication extends JFrame {
     private JComboBox studentProfessor;
     private final String[] options = { "", "Student", "Professor" };
     private String option;
-    private Encryption encryption;
+    //private Encryption encryption;
 
     public Authentication(Component component) {
         this.loginInformation = new String[2];
@@ -103,9 +103,9 @@ public class Authentication extends JFrame {
         return this.loginInformation;
     }
 
-    public Encryption getEncryption() {
+    /*public Encryption getEncryption() {
         return this.encryption;
-    }
+    }*/
 
     public void cleanup() {
         this.dispose();

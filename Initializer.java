@@ -10,10 +10,17 @@ public class Initializer {
     private String[] setupCommands = new String[3];
     private Connection connection;
     private Query query;
-    private final String[] FILES = {"src/droptables2.txt", "src/tables2.txt", "src/data2.txt"};
+    private final String[] FILES = {"droptables2.txt", "tables.txt", "data.txt"};
     private final String[] TABLES = {"Student", "Professor", "Course", "Takes", "Teaches", "TA", "Due",
             "Team", "Friend"};
     private final int COMPONENTS = 2;
+    private ArrayList<ArrayList<String>> courses;
+
+    private ArrayList<ArrayList<String>> friendsCourse;
+    private ArrayList<ArrayList<String>> gradesCourse;
+    private ArrayList<ArrayList<ArrayList<String>>> dueDatesAssignments;
+    private ArrayList<String> friendList;
+    private ArrayList<ArrayList<ArrayList<String>>> friendListClasses;
 
     public String option;
 
@@ -32,6 +39,11 @@ public class Initializer {
         authentication.cleanup();
         this.login();
         this.query = new Query(this.connection);
+        this.friendsCourse = new ArrayList<>();
+        this.gradesCourse = new ArrayList<>();
+        this.dueDatesAssignments = new ArrayList<>();
+        this.friendList = new ArrayList<>();
+        this.friendListClasses = new ArrayList<>();
         //this.loadDatabase();
     }
 
@@ -47,7 +59,7 @@ public class Initializer {
             this.password = loginInformation[1];
             this.setupCommands[0] = "mysql -h mydb.itap.purdue.edu -p";
             this.setupCommands[1] = password;
-            this.setupCommands[2] = "use " + username;
+            this.setupCommands[2] = "use " + username + ";";
         }
     }
 
@@ -172,4 +184,53 @@ public class Initializer {
     public String getUsername() { return this.username; }
 
     public String getPassword() { return this.password; }
+
+    public void setCourses(ArrayList<ArrayList<String>> courses) {
+        this.courses = courses;
+    }
+
+    public ArrayList<ArrayList<String>> getCourses() {
+        return this.courses;
+    }
+
+    public ArrayList<ArrayList<String>> getFriendsCourse() {
+        return friendsCourse;
+    }
+
+    public void setFriendsCourse(ArrayList<ArrayList<String>> friendsCourse) {
+        this.friendsCourse = friendsCourse;
+    }
+
+    public ArrayList<ArrayList<String>> getGradesCourse() {
+        return gradesCourse;
+    }
+
+    public void setGradesCourse(ArrayList<ArrayList<String>> gradesCourse) {
+        this.gradesCourse = gradesCourse;
+    }
+
+    public ArrayList<ArrayList<ArrayList<String>>> getDueDatesAssignments() {
+        return dueDatesAssignments;
+    }
+
+//    public void setDueDatesAssignments(ArrayList<ArrayList<String>> dueDatesAssignments) {
+//        this.dueDatesAssignments = dueDatesAssignments;
+//    }
+
+
+    public ArrayList<String> getFriendList() {
+        return friendList;
+    }
+
+    public void setFriendList(ArrayList<String> friendList) {
+        this.friendList = friendList;
+    }
+
+    public ArrayList<ArrayList<ArrayList<String>>> getFriendListClasses() {
+        return friendListClasses;
+    }
+
+    public void setFriendListClasses(ArrayList<ArrayList<ArrayList<String>>> friendListClasses) {
+        this.friendListClasses = friendListClasses;
+    }
 }

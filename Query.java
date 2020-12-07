@@ -23,11 +23,11 @@ public class Query {
             return null;
         }
         ArrayList<String> ret = new ArrayList<>();
-        output = output.substring(output.indexOf("+"));
-        output = output.substring(output.indexOf("|"));
+        output = output.substring(Math.max(output.indexOf("+"), 0));
+        output = output.substring(Math.max(output.indexOf("|"), 0));
         int i = 0;
         String temp = "";
-        while (output.charAt(i) != '\n') {
+        while (i < output.length() && output.charAt(i) != '\n') {
             if (output.charAt(i) != ' ' && output.charAt(i) != '|') {
                 temp += output.charAt(i);
             } else {
@@ -42,40 +42,49 @@ public class Query {
     }
 
     public ArrayList<ArrayList<String>> getTable(String command) {
-        this.connection.getBaos().reset();
-        ArrayList<String> columns = this.getColumns(this.sendQuery(command));
-        if (columns == null) {
+        try {
+            this.connection.getBaos().reset();
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            ArrayList<String> columns = this.getColumns(this.sendQuery(command));
+            if (columns == null) {
+                return null;
+            }
+            ArrayList<ArrayList<String>> ret = new ArrayList<>();
+            for (int i = 0; i < columns.size(); i++) {
+                ret.add(new ArrayList<>());
+                ret.get(i).add(columns.get(i));
+            }
+            String output = this.sendQuery(command);
+            for (int i = 0; i < 2; i++) {
+                output = output.substring(Math.max(output.indexOf("+"), 0));
+                output = output.substring(Math.max(output.indexOf("|"), 0));
+            }
+            String temp = "";
+            int i = 1;
+            int index = 0;
+            while (output.charAt(i) != '+') {
+                if (output.charAt(i) == '|') {
+                    if (!temp.equals("")) {
+                        ret.get(index).add(temp);
+                        index++;
+                        temp = "";
+                    }
+                } else if (output.charAt(i) == '\n') {
+                    temp = "";
+                    index = 0;
+                } else if (output.charAt(i) != ' ') {
+                    temp += output.charAt(i);
+                }
+                i++;
+            }
+            return ret;
+        } catch (Exception e) {
             return null;
         }
-        ArrayList<ArrayList<String>> ret = new ArrayList<>();
-        for (int i = 0; i < columns.size(); i++) {
-            ret.add(new ArrayList<>());
-            ret.get(i).add(columns.get(i));
-        }
-        String output = this.sendQuery(command);
-        for (int i = 0; i < 2; i++) {
-            output = output.substring(output.indexOf("+"));
-            output = output.substring(output.indexOf("|"));
-        }
-        String temp = "";
-        int i = 1;
-        int index = 0;
-        while (output.charAt(i) != '+') {
-            if (output.charAt(i) == '|') {
-                if (!temp.equals("")) {
-                    ret.get(index).add(temp);
-                    index++;
-                    temp = "";
-                }
-            } else if (output.charAt(i) == '\n') {
-                temp = "";
-                index = 0;
-            } else if (output.charAt(i) != ' ') {
-                temp += output.charAt(i);
-            }
-            i++;
-        }
-        return ret;
     }
 
     public ArrayList<String> getTableColumn(String command, String column) {
