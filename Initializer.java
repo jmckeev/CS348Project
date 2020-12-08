@@ -59,7 +59,7 @@ public class Initializer {
         this.tas = new ArrayList<>();
         this.eligibleTas = new ArrayList<>();
         this.crns = new ArrayList<>();
-        //this.loadDatabase();
+        this.loadDatabase();
     }
 
     private void setUserPassHost(Authentication authentication) {
@@ -124,7 +124,7 @@ public class Initializer {
 
     private void writeToFile() {
         Loader loader = new Loader("Saving Data", "Writing to file...");
-        File file = new File("data3.txt");
+        File file = new File("data.txt");
         try {
             FileWriter fileWriter = new FileWriter(file);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
