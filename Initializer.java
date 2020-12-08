@@ -10,7 +10,7 @@ public class Initializer {
     private String[] setupCommands = new String[3];
     private Connection connection;
     private Query query;
-    private final String[] FILES = {"droptables2.txt", "tables.txt", "data.txt"};
+    private final String[] FILES = {"droptables2.txt", "tables.txt", "data.txt", "index.txt"};
     private final String[] TABLES = {"Student", "Professor", "Course", "Takes", "Teaches", "TA", "Due",
             "Team", "Friend"};
     private final int COMPONENTS = 2;
