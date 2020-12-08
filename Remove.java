@@ -13,9 +13,13 @@ public class Remove extends JFrame {
         this.studentHandler = studentHandler;
         this.names = new ArrayList<>();
         this.remove = new ArrayList<>();
-        for (int i = 1; i < studentHandler.getInitializer().getFriendList().size(); i++) {
-            this.names.add(new JLabel(studentHandler.getInitializer().addSpaces(studentHandler.getInitializer().getFriendList().get(i))));
-            this.remove.add(new JButton("Remove"));
+        if (studentHandler.getInitializer().getFriendList() == null) {
+            this.names.add(new JLabel("No Friends"));
+        } else {
+            for (int i = 1; i < studentHandler.getInitializer().getFriendList().size(); i++) {
+                this.names.add(new JLabel(studentHandler.getInitializer().addSpaces(studentHandler.getInitializer().getFriendList().get(i))));
+                this.remove.add(new JButton("Remove"));
+            }
         }
         this.jPanel = new JPanel();
         this.jPanel.setLayout(null);
@@ -33,6 +37,8 @@ public class Remove extends JFrame {
         for (int i = 0; i < this.names.size(); i++) {
             this.names.get(i).setSize(400, 20);
             this.names.get(i).setLocation(10, (i * 20) + 30);
+        }
+        for (int i = 0; i < this.remove.size(); i++) {
             this.remove.get(i).setSize(150, 20);
             this.remove.get(i).setLocation(100, (i * 20) + 30);
         }
@@ -41,6 +47,8 @@ public class Remove extends JFrame {
     private void addAll() {
         for (int i = 0; i < this.names.size(); i++) {
             this.jPanel.add(this.names.get(i));
+        }
+        for (int i = 0; i < this.remove.size(); i++) {
             this.jPanel.add(this.remove.get(i));
         }
     }
@@ -63,6 +71,7 @@ public class Remove extends JFrame {
 //        this.names.remove(index);
 //        this.remove.remove(index);
 //        this.relocate();
+        //this.studentHandler.getInitializer().getFriendList().remove(this.names.get(index).getText());
     }
 
     private void relocate() {

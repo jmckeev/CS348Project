@@ -23,6 +23,9 @@ public class Initializer {
     private ArrayList<ArrayList<ArrayList<String>>> friendListClasses;
     private ArrayList<ArrayList<String>> newFriends;
     private ArrayList<String> updates;
+
+    private ArrayList<ArrayList<String>> professorCourses;
+    private ArrayList<ArrayList<ArrayList<String>>> tas;
     private String name;
 
     public String option;
@@ -49,6 +52,9 @@ public class Initializer {
         this.friendListClasses = new ArrayList<>();
         this.newFriends = new ArrayList<>();
         this.updates = new ArrayList<>();
+
+        this.professorCourses = new ArrayList<>();
+        this.tas = new ArrayList<>();
         //this.loadDatabase();
     }
 
@@ -119,7 +125,7 @@ public class Initializer {
 
     private void writeToFile() {
         Loader loader = new Loader("Saving Data", "Writing to file...");
-        File file = new File("src/data3.txt");
+        File file = new File("data3.txt");
         try {
             FileWriter fileWriter = new FileWriter(file);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
@@ -155,6 +161,9 @@ public class Initializer {
                     }
                 }
             }
+            for (int i = 0; i < this.updates.size(); i++) {
+                bufferedWriter.write(this.updates.get(i) + "\n");
+            }
             bufferedWriter.close();
             fileWriter.close();
         } catch (IOException e) {
@@ -182,15 +191,20 @@ public class Initializer {
 
     public void cleanup() {
         this.updateAll();
-        //this.writeToFile();
+        this.writeToFile();
         this.connection.cleanup();
     }
 
     private void updateAll() {
         for (int i = 0; i < this.updates.size(); i++) {
-            //this.query.sendQuery(this.updates.get(i));
+            this.query.sendQuery(this.updates.get(i));
             System.out.println(this.updates.get(i));
         }
+    }
+
+    public void initializeFriendList() {
+        this.friendList = new ArrayList<>();
+        this.friendList.add("name");
     }
 
     public Query getQuery() {
@@ -272,5 +286,21 @@ public class Initializer {
 
     public void setUpdates(ArrayList<String> updates) {
         this.updates = updates;
+    }
+
+    public ArrayList<ArrayList<String>> getProfessorCourses() {
+        return professorCourses;
+    }
+
+    public void setProfessorCourses(ArrayList<ArrayList<String>> professorCourses) {
+        this.professorCourses = professorCourses;
+    }
+
+    public ArrayList<ArrayList<ArrayList<String>>> getTas() {
+        return tas;
+    }
+
+    public void setTas(ArrayList<ArrayList<ArrayList<String>>> tas) {
+        this.tas = tas;
     }
 }
