@@ -11,7 +11,7 @@ public class ProfessorHandler {
         if (state == ProfessorDriver.PROFESSOR_STATE.taList) {
             TaList taList = new TaList(this);
         } else if (state == ProfessorDriver.PROFESSOR_STATE.add) {
-
+            AddTa addTa = new AddTa(this);
         } else if (state == ProfessorDriver.PROFESSOR_STATE.remove) {
 
         }

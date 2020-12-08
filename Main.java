@@ -85,14 +85,26 @@ public class Main {
             else {
                 initializer.setProfessorCourses(temp);
                 for (int i = 1; i < initializer.getProfessorCourses().get(0).size(); i++) {
-                    prepare.setVariables("@major" + i + "," + initializer.getProfessorCourses().get(0).get(i) + ";@id = " + i + "," + initializer.getProfessorCourses().get(1).get(i));
-//                    temp = initializer.getQuery().getTable("EXECUTE findTas USING @major" + i + ",@id" + i + ";");
-//                    initializer.getTas().add(temp);
-                    temp = initializer.getQuery().getTable("SELECT student_id, name FROM Student NATURAL JOIN TA NATURAL JOIN Course WHERE major = \"CS\" AND id = \"34800\";");
-                    System.out.println(temp);
+                    prepare.setVariables("@major" + i + "," + initializer.getProfessorCourses().get(0).get(i) + ";@id" + i + "," + initializer.getProfessorCourses().get(1).get(i));
+                }
+
+                for (int i = 1; i < initializer.getProfessorCourses().get(0).size(); i++) {
+                    temp = initializer.getQuery().getTable("EXECUTE findTas USING @major" + i + ",@id" + i + ";");
                     initializer.getTas().add(temp);
+
+                    temp = initializer.getQuery().getTable("EXECUTE getEligibleTas USING @major" + i + ",@id" + i + ";");
+                    initializer.getEligibleTas().add(temp);
+                    System.out.println(temp);
                 }
             }
+
+//            for (int i = 0; i < initializer.getEligibleTas().size(); i++) {
+//                for (int j = 0; j < initializer.getEligibleTas().get(i).size(); j++) {
+//                    for (int k = 0; k < initializer.getEligibleTas().get(i).get(j).size(); k++) {
+//                        System.out.println("i = " + i + "\nj = " + j + "\nk = " + k + "\n" + initializer.getEligibleTas().get(i).get(j).get(k));
+//                    }
+//                }
+//            }
 
             ProfessorDriver professorDriver = new ProfessorDriver(initializer);
             prepare.deallocateProfessor();

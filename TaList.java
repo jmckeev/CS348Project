@@ -34,7 +34,7 @@ public class TaList extends JFrame {
         for (int i = 1; i < professorCourses.get(0).size(); i++) {
             String temp = professorCourses.get(0).get(i) + " " + professorCourses.get(1).get(i) + ": ";
             for (int j = 1; j < tas.get(i - 1).size(); j++) {
-                temp += tas.get(i - 1).get(1).get(j) + " (" + tas.get(i - 1).get(0).get(j) + ")";
+                temp += this.professorHandler.getInitializer().addSpaces(tas.get(i - 1).get(1).get(j)) + " (" + tas.get(i - 1).get(0).get(j) + ")";
                 if (j != tas.get(i - 1).size() - 1) {
                     temp += ",";
                 }

@@ -32,10 +32,12 @@ public class Prepare {
     public void prepareProfessor() {
         this.initializer.getQuery().prepare("getCourses", "SELECT major, id FROM Professor NATURAL JOIN Teaches NATURAL JOIN Course WHERE professor_id = ?");
         this.initializer.getQuery().prepare("findTas", "SELECT student_id, name FROM Student NATURAL JOIN TA NATURAL JOIN Course WHERE major = ? AND id = ?");
+        this.initializer.getQuery().prepare("getEligibleTas", "SELECT student_id, name FROM Student NATURAL JOIN Takes NATURAL JOIN Course WHERE grade = \"A\" AND major = ? AND id = ?");
     }
 
     public void deallocateProfessor() {
         this.initializer.getQuery().sendQuery("DEALLOCATE PREPARE getCourses;");
         this.initializer.getQuery().sendQuery("DEALLOCATE PREPARE findTas;");
+        this.initializer.getQuery().sendQuery("DEALLOCATE PREPARE getEligibleTas");
     }
 }

@@ -26,6 +26,7 @@ public class Initializer {
 
     private ArrayList<ArrayList<String>> professorCourses;
     private ArrayList<ArrayList<ArrayList<String>>> tas;
+    private ArrayList<ArrayList<ArrayList<String>>> eligibleTas;
     private String name;
 
     public String option;
@@ -55,6 +56,7 @@ public class Initializer {
 
         this.professorCourses = new ArrayList<>();
         this.tas = new ArrayList<>();
+        this.eligibleTas = new ArrayList<>();
         //this.loadDatabase();
     }
 
@@ -302,5 +304,13 @@ public class Initializer {
 
     public void setTas(ArrayList<ArrayList<ArrayList<String>>> tas) {
         this.tas = tas;
+    }
+
+    public ArrayList<ArrayList<ArrayList<String>>> getEligibleTas() {
+        return eligibleTas;
+    }
+
+    public void setEligibleTas(ArrayList<ArrayList<ArrayList<String>>> eligibleTas) {
+        this.eligibleTas = eligibleTas;
     }
 }
