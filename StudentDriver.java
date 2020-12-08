@@ -9,6 +9,7 @@ public class StudentDriver extends JFrame {
     private JRadioButton friendSchedule;
     private JRadioButton add;
     private JRadioButton remove;
+    private JRadioButton update;
     private JButton logout;
     private JButton next;
     private ButtonGroup buttonGroup;
@@ -19,7 +20,8 @@ public class StudentDriver extends JFrame {
         userClasses,
         friendSchedule,
         add,
-        remove
+        remove,
+        updateName
     }
 
     public StudentDriver(Initializer initializer) {
@@ -38,6 +40,8 @@ public class StudentDriver extends JFrame {
         this.add.setActionCommand("Add Friend");
         this.remove = new JRadioButton("Remove Friend");
         this.remove.setActionCommand("Remove Friend");
+        this.update = new JRadioButton("Update Name");
+        this.update.setActionCommand("Update Name");
         this.logout = new JButton("Logout");
         this.next = new JButton("Next");
 
@@ -66,6 +70,8 @@ public class StudentDriver extends JFrame {
         this.add.setLocation(20, 120);
         this.remove.setSize(400, 20);
         this.remove.setLocation(20, 145);
+        this.update.setSize(400, 20);
+        this.update.setLocation(20, 170);
         this.logout.setSize(80, 20);
         this.logout.setLocation(250, 330);
         this.next.setSize(80, 20);
@@ -78,6 +84,7 @@ public class StudentDriver extends JFrame {
         this.jPanel.add(this.friendSchedule);
         this.jPanel.add(this.add);
         this.jPanel.add(this.remove);
+        this.jPanel.add(this.update);
         this.jPanel.add(this.logout);
         this.jPanel.add(this.next);
     }
@@ -87,6 +94,7 @@ public class StudentDriver extends JFrame {
         this.buttonGroup.add(this.friendSchedule);
         this.buttonGroup.add(this.add);
         this.buttonGroup.add(this.remove);
+        this.buttonGroup.add(this.update);
     }
 
     private void addListeners() {
@@ -110,8 +118,15 @@ public class StudentDriver extends JFrame {
                     studentHandler.handle(STUDENT_STATE.add);
                 } else if (temp.equals("Remove Friend")) {
                     studentHandler.handle(STUDENT_STATE.remove);
+                } else if (temp.equals("Update Name")) {
+                    studentHandler.handle(STUDENT_STATE.updateName);
                 }
             }
         });
+    }
+
+    public void resetName() {
+        this.message.setText("Welcome back, " + this.initializer.getName() + ". What would you like to do today?");
+        this.repaint();
     }
 }

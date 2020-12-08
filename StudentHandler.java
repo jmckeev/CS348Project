@@ -16,6 +16,9 @@ public class StudentHandler {
             Add add = new Add(this);
         } else if (state == StudentDriver.STUDENT_STATE.remove) {
             Remove remove = new Remove(this);
+        } else if (state == StudentDriver.STUDENT_STATE.updateName) {
+            Update update = new Update(this);
+            this.studentDriver.resetName();
         }
     }
 

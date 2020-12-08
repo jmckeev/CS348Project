@@ -2,20 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="045c7b27-e6c3-48a3-8129-ad77353abddb" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Update.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UpdateProfessor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Add.java" beforeDir="false" afterPath="$PROJECT_DIR$/Add.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AddTa.java" beforeDir="false" afterPath="$PROJECT_DIR$/AddTa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Authentication.java" beforeDir="false" afterPath="$PROJECT_DIR$/Authentication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Initializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Initializer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Query.java" beforeDir="false" afterPath="$PROJECT_DIR$/Query.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Remove.java" beforeDir="false" afterPath="$PROJECT_DIR$/Remove.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RemoveTa.java" beforeDir="false" afterPath="$PROJECT_DIR$/RemoveTa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProfessorDriver.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProfessorDriver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProfessorHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProfessorHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StudentDriver.java" beforeDir="false" afterPath="$PROJECT_DIR$/StudentDriver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StudentHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/StudentHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS348Project/Authentication$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS348Project/Authentication$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS348Project/Authentication$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS348Project/Authentication$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS348Project/Authentication.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS348Project/Authentication.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CS348Project/Initializer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS348Project/Initializer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CS348Project/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS348Project/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS348Project/ProfessorDriver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS348Project/ProfessorDriver.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS348Project/ProfessorHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS348Project/ProfessorHandler.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CS348Project/Query.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS348Project/Query.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS348Project/data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS348Project/data.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS348Project/StudentDriver$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS348Project/StudentDriver$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS348Project/StudentDriver$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS348Project/StudentDriver$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS348Project/StudentDriver$STUDENT_STATE.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS348Project/StudentDriver$STUDENT_STATE.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS348Project/StudentDriver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS348Project/StudentDriver.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS348Project/StudentHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS348Project/StudentHandler.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -41,39 +49,119 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="71" />
+          <entry key="java" value="90" />
           <entry key="sql" value="1" />
-          <entry key="txt" value="29" />
+          <entry key="txt" value="30" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="71" />
+          <entry key="JAVA" value="90" />
           <entry key="OdpsQL" value="1" />
-          <entry key="PLAIN_TEXT" value="29" />
+          <entry key="PLAIN_TEXT" value="30" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="24546" />
-          <entry key="txt" value="234" />
+          <entry key="java" value="26721" />
+          <entry key="txt" value="247" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="24546" />
-          <entry key="PLAIN_TEXT" value="234" />
+          <entry key="JAVA" value="26721" />
+          <entry key="PLAIN_TEXT" value="247" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1377">
-              <caret line="81" column="18" lean-forward="true" selection-start-line="81" selection-start-column="18" selection-end-line="81" selection-end-column="18" />
+            <state relative-caret-position="17">
+              <caret line="58" column="43" selection-start-line="58" selection-start-column="43" selection-end-line="58" selection-end-column="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/UpdateProfessor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="247">
+              <caret line="50" selection-start-line="50" selection-end-line="50" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1420#1421#0" expanded="true" />
+                <element signature="e#1481#1482#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/RemoveTa.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="28" column="9" lean-forward="true" selection-start-line="28" selection-start-column="9" selection-end-line="28" selection-end-column="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Initializer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="68" column="9" lean-forward="true" selection-start-line="68" selection-start-column="9" selection-end-line="68" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Loader.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="114">
+              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/FriendSchedule.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-385">
+              <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/StudentHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="329">
+              <caret line="20" column="43" lean-forward="true" selection-start-line="20" selection-start-column="43" selection-end-line="20" selection-end-column="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Query.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="10" column="80" selection-start-line="10" selection-start-column="80" selection-end-line="10" selection-end-column="80" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/StudentDriver.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="312">
+              <caret line="127" column="20" lean-forward="true" selection-start-line="127" selection-start-column="20" selection-end-line="127" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -121,29 +209,30 @@
         <option value="$PROJECT_DIR$/UserClasses.java" />
         <option value="$PROJECT_DIR$/ClassInformation.java" />
         <option value="$PROJECT_DIR$/AddDrop.java" />
-        <option value="$PROJECT_DIR$/StudentDriver.java" />
-        <option value="$PROJECT_DIR$/StudentHandler.java" />
         <option value="$PROJECT_DIR$/data3.txt" />
-        <option value="$PROJECT_DIR$/ProfessorDriver.java" />
         <option value="$PROJECT_DIR$/TaList.java" />
-        <option value="$PROJECT_DIR$/ProfessorHandler.java" />
         <option value="$PROJECT_DIR$/FriendSchedule.java" />
         <option value="$PROJECT_DIR$/Prepare.java" />
         <option value="$PROJECT_DIR$/data.txt" />
         <option value="$PROJECT_DIR$/Authentication.java" />
         <option value="$PROJECT_DIR$/AddTa.java" />
         <option value="$PROJECT_DIR$/Add.java" />
-        <option value="$PROJECT_DIR$/Initializer.java" />
         <option value="$PROJECT_DIR$/Query.java" />
         <option value="$PROJECT_DIR$/Remove.java" />
         <option value="$PROJECT_DIR$/RemoveTa.java" />
         <option value="$PROJECT_DIR$/Main.java" />
+        <option value="$PROJECT_DIR$/Initializer.java" />
+        <option value="$PROJECT_DIR$/StudentDriver.java" />
+        <option value="$PROJECT_DIR$/StudentHandler.java" />
+        <option value="$PROJECT_DIR$/Update.java" />
+        <option value="$PROJECT_DIR$/ProfessorHandler.java" />
+        <option value="$PROJECT_DIR$/ProfessorDriver.java" />
+        <option value="$PROJECT_DIR$/UpdateProfessor.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-9" />
-    <option name="y" value="-9" />
+    <option name="x" value="952" />
     <option name="width" value="977" />
     <option name="height" value="1038" />
   </component>
@@ -179,7 +268,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1607447538960" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1607457153495" />
     <property name="last_opened_file_path" value="$USER_HOME$/OneDrive/Documents/jsch-0.1.54.jar!/" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
@@ -259,12 +348,18 @@
       <option name="project" value="LOCAL" />
       <updated>1607445477960</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Final Version">
+      <created>1607447561110</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1607447561110</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Designer" order="0" />
       <window_info id="Project Explorer" order="1" weight="0.32871014" />
@@ -278,7 +373,7 @@
       <window_info anchor="bottom" id="Version Control" order="0" weight="0.32907802" />
       <window_info anchor="bottom" id="Terminal" order="1" weight="0.32907802" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="3" weight="0.32855093" />
+      <window_info anchor="bottom" id="Messages" order="3" weight="0.32765958" />
       <window_info anchor="bottom" id="Console" order="4" />
       <window_info anchor="bottom" id="Message" order="5" />
       <window_info anchor="bottom" id="Find" order="6" weight="0.32907802" />
@@ -334,7 +429,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Workable version" />
     <MESSAGE value="Checkpoint" />
-    <option name="LAST_COMMIT_MESSAGE" value="Checkpoint" />
+    <MESSAGE value="Final Version" />
+    <option name="LAST_COMMIT_MESSAGE" value="Final Version" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/out/data.txt" />
@@ -363,13 +459,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data2.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="29" column="22" lean-forward="true" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tables.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="177">
@@ -384,27 +473,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Authentication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="397">
-          <caret line="105" column="29" selection-start-line="105" selection-start-column="29" selection-end-line="105" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/droptables2.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="23" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AddTa.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1049">
-          <caret line="85" selection-start-line="85" selection-end-line="85" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -434,96 +506,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FriendSchedule.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-14">
-          <caret line="37" column="33" selection-start-line="37" selection-start-column="33" selection-end-line="37" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Initializer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="288" column="4" selection-start-line="288" selection-start-column="4" selection-end-line="288" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Loader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Prepare.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="14" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ProfessorDriver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1249">
-          <caret line="16" column="33" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ProfessorHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="51" selection-start-line="15" selection-start-column="51" selection-end-line="15" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Remove.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="182">
           <caret line="68" selection-start-line="68" selection-end-line="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Query.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="112" selection-start-line="112" selection-end-line="112" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/RemoveTa.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1428">
-          <caret line="86" column="5" selection-start-line="86" selection-start-column="5" selection-end-line="86" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/StudentDriver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="92" column="35" lean-forward="true" selection-start-line="92" selection-start-column="35" selection-end-line="92" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/StudentHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="39" lean-forward="true" selection-start-line="6" selection-start-column="39" selection-end-line="6" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TaList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="32" column="9" selection-start-line="32" selection-start-column="9" selection-end-line="32" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -534,10 +520,146 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/data2.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="29" column="22" lean-forward="true" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AddTa.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="22" column="89" selection-start-line="22" selection-start-column="89" selection-end-line="22" selection-end-column="89" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Authentication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="68" column="18" selection-start-line="68" selection-start-column="18" selection-end-line="68" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Update.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="29" column="33" lean-forward="true" selection-start-line="29" selection-start-column="33" selection-end-line="29" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProfessorHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="18" column="32" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
+          <folding>
+            <element signature="e#829#830#0" expanded="true" />
+            <element signature="e#868#869#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProfessorDriver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-164">
+          <caret line="93" column="21" lean-forward="true" selection-start-line="93" selection-start-column="21" selection-end-line="93" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TaList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="32" column="9" selection-start-line="32" selection-start-column="9" selection-end-line="32" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FriendSchedule.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-385">
+          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Initializer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="68" column="9" lean-forward="true" selection-start-line="68" selection-start-column="9" selection-end-line="68" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Loader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/StudentDriver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="127" column="20" lean-forward="true" selection-start-line="127" selection-start-column="20" selection-end-line="127" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/StudentHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="20" column="43" lean-forward="true" selection-start-line="20" selection-start-column="43" selection-end-line="20" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Query.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="10" column="80" selection-start-line="10" selection-start-column="80" selection-end-line="10" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RemoveTa.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="28" column="9" lean-forward="true" selection-start-line="28" selection-start-column="9" selection-end-line="28" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Prepare.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="15" column="5" lean-forward="true" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1377">
-          <caret line="81" column="18" lean-forward="true" selection-start-line="81" selection-start-column="18" selection-end-line="81" selection-end-column="18" />
+        <state relative-caret-position="17">
+          <caret line="58" column="43" selection-start-line="58" selection-start-column="43" selection-end-line="58" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UpdateProfessor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="50" selection-start-line="50" selection-end-line="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1420#1421#0" expanded="true" />
+            <element signature="e#1481#1482#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

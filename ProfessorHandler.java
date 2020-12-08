@@ -14,6 +14,9 @@ public class ProfessorHandler {
             AddTa addTa = new AddTa(this);
         } else if (state == ProfessorDriver.PROFESSOR_STATE.remove) {
             RemoveTa removeTa = new RemoveTa(this);
+        } else if (state == ProfessorDriver.PROFESSOR_STATE.updateName) {
+            UpdateProfessor updateProfessor = new UpdateProfessor(this);
+            this.professorDriver.resetName();
         }
     }
 

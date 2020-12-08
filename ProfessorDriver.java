@@ -8,6 +8,7 @@ public class ProfessorDriver extends JFrame {
     private JRadioButton taList;
     private JRadioButton add;
     private JRadioButton remove;
+    private JRadioButton update;
     private JButton logout;
     private JButton next;
     private ButtonGroup buttonGroup;
@@ -17,7 +18,8 @@ public class ProfessorDriver extends JFrame {
     public enum PROFESSOR_STATE {
         taList,
         add,
-        remove
+        remove,
+        updateName
     }
 
     public ProfessorDriver(Initializer initializer) {
@@ -34,6 +36,8 @@ public class ProfessorDriver extends JFrame {
         this.add.setActionCommand("Add TA");
         this.remove = new JRadioButton("Remove TA");
         this.remove.setActionCommand("Remove TA");
+        this.update = new JRadioButton("Update Name");
+        this.update.setActionCommand("Update Name");
         this.logout = new JButton("Logout");
         this.next = new JButton("Next");
 
@@ -60,6 +64,8 @@ public class ProfessorDriver extends JFrame {
         this.add.setLocation(20, 95);
         this.remove.setSize(400, 20);
         this.remove.setLocation(20, 120);
+        this.update.setSize(400, 20);
+        this.update.setLocation(20, 145);
         this.logout.setSize(80, 20);
         this.logout.setLocation(250, 330);
         this.next.setSize(80, 20);
@@ -71,6 +77,7 @@ public class ProfessorDriver extends JFrame {
         this.jPanel.add(this.taList);
         this.jPanel.add(this.add);
         this.jPanel.add(this.remove);
+        this.jPanel.add(this.update);
         this.jPanel.add(this.logout);
         this.jPanel.add(this.next);
     }
@@ -79,6 +86,7 @@ public class ProfessorDriver extends JFrame {
         this.buttonGroup.add(this.taList);
         this.buttonGroup.add(this.add);
         this.buttonGroup.add(this.remove);
+        this.buttonGroup.add(this.update);
     }
 
     private void addListeners() {
@@ -100,8 +108,15 @@ public class ProfessorDriver extends JFrame {
                     professorHandler.handle(PROFESSOR_STATE.add);
                 } else if (temp.equals("Remove TA")) {
                     professorHandler.handle(PROFESSOR_STATE.remove);
+                } else if (temp.equals("Update Name")) {
+                    professorHandler.handle((PROFESSOR_STATE.updateName));
                 }
             }
         });
+    }
+
+    public void resetName() {
+        this.message.setText("Welcome back, " + this.initializer.getName() + ". What would you like to do today?");
+        this.repaint();
     }
 }

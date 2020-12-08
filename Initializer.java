@@ -59,7 +59,7 @@ public class Initializer {
         this.tas = new ArrayList<>();
         this.eligibleTas = new ArrayList<>();
         this.crns = new ArrayList<>();
-        this.loadDatabase();
+        //this.loadDatabase();
     }
 
     private void setUserPassHost(Authentication authentication) {

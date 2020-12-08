@@ -70,7 +70,7 @@ public class Main {
             StudentDriver studentDriver = new StudentDriver(initializer);
             prepare.deallocateStudent();
         } else {
-            //initializer.setUsername("hbenotma");
+            initializer.setUsername("hbenotma");
             prepare.prepareProfessor();
             prepare.setVariables("@username," + initializer.getUsername());
             initializer.setName(initializer.addSpaces(initializer.getQuery().getTableColumn("SELECT name FROM Professor WHERE professor_id = \"" + initializer.getUsername() + "" + "\";", "name", "READ UNCOMMITTED").get(1)));
