@@ -27,6 +27,7 @@ public class Initializer {
     private ArrayList<ArrayList<String>> professorCourses;
     private ArrayList<ArrayList<ArrayList<String>>> tas;
     private ArrayList<ArrayList<ArrayList<String>>> eligibleTas;
+    private ArrayList<String> crns;
     private String name;
 
     public String option;
@@ -57,6 +58,7 @@ public class Initializer {
         this.professorCourses = new ArrayList<>();
         this.tas = new ArrayList<>();
         this.eligibleTas = new ArrayList<>();
+        this.crns = new ArrayList<>();
         //this.loadDatabase();
     }
 
@@ -312,5 +314,13 @@ public class Initializer {
 
     public void setEligibleTas(ArrayList<ArrayList<ArrayList<String>>> eligibleTas) {
         this.eligibleTas = eligibleTas;
+    }
+
+    public ArrayList<String> getCrns() {
+        return crns;
+    }
+
+    public void setCrns(ArrayList<String> crns) {
+        this.crns = crns;
     }
 }

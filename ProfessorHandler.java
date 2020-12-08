@@ -13,7 +13,7 @@ public class ProfessorHandler {
         } else if (state == ProfessorDriver.PROFESSOR_STATE.add) {
             AddTa addTa = new AddTa(this);
         } else if (state == ProfessorDriver.PROFESSOR_STATE.remove) {
-
+            RemoveTa removeTa = new RemoveTa(this);
         }
     }
 

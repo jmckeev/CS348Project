@@ -3,26 +3,26 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-public class AddTa extends JFrame {
+public class RemoveTa extends JFrame {
     private ProfessorHandler professorHandler;
     private JPanel jPanel;
     private ArrayList<JLabel> courses;
     private ArrayList<JLabel> names;
-    private ArrayList<JButton> add;
+    private ArrayList<JButton> remove;
 
-    public AddTa(ProfessorHandler professorHandler) {
+    public RemoveTa(ProfessorHandler professorHandler) {
         this.professorHandler = professorHandler;
         this.courses = new ArrayList<>();
         this.names = new ArrayList<>();
-        this.add = new ArrayList<>();
+        this.remove = new ArrayList<>();
         if (this.professorHandler.getInitializer().getProfessorCourses() == null) {
             this.courses.add(new JLabel("No courses"));
         } else {
             for (int i = 1; i < this.professorHandler.getInitializer().getProfessorCourses().size(); i++) {
                 this.courses.add(new JLabel(this.professorHandler.getInitializer().getProfessorCourses().get(0).get(i) + " " + this.professorHandler.getInitializer().getProfessorCourses().get(1).get(i)));
-                for (int j = 1; j < this.professorHandler.getInitializer().getEligibleTas().get(i - 1).size(); j++) {
-                    this.names.add(new JLabel(this.professorHandler.getInitializer().addSpaces(this.professorHandler.getInitializer().getEligibleTas().get(i - 1).get(1).get(j)) + " (" + this.professorHandler.getInitializer().getEligibleTas().get(i - 1).get(0).get(j) + ")"));
-                    this.add.add(new JButton("Add"));
+                for (int j = 1; j < this.professorHandler.getInitializer().getTas().get(i - 1).size(); j++) {
+                    this.names.add(new JLabel(this.professorHandler.getInitializer().addSpaces(this.professorHandler.getInitializer().getTas().get(i - 1).get(1).get(j)) + " (" + this.professorHandler.getInitializer().getEligibleTas().get(i - 1).get(0).get(j) + ")"));
+                    this.remove.add(new JButton("Remove"));
 
                 }
             }
@@ -49,9 +49,9 @@ public class AddTa extends JFrame {
             this.names.get(i).setSize(400, 20);
             this.names.get(i).setLocation(10, (i * 20) + 60);
         }
-        for (int i = 0; i < this.add.size(); i++) {
-            this.add.get(i).setSize(150, 20);
-            this.add.get(i).setLocation(200, (i * 20) + 60);
+        for (int i = 0; i < this.remove.size(); i++) {
+            this.remove.get(i).setSize(150, 20);
+            this.remove.get(i).setLocation(200, (i * 20) + 60);
         }
     }
 
@@ -62,14 +62,14 @@ public class AddTa extends JFrame {
         for (int i = 0; i < this.names.size(); i++) {
             this.jPanel.add(this.names.get(i));
         }
-        for (int i = 0; i < this.add.size(); i++) {
-            this.jPanel.add(this.add.get(i));
+        for (int i = 0; i < this.remove.size(); i++) {
+            this.jPanel.add(this.remove.get(i));
         }
     }
 
     private void addActionListeners() {
-        for (int i = 0; i < this.add.size(); i++) {
-            this.add.get(i).addActionListener(new ActionListener() {
+        for (int i = 0; i < this.remove.size(); i++) {
+            this.remove.get(i).addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     handleButtonClick((JButton) e.getSource());
@@ -81,8 +81,10 @@ public class AddTa extends JFrame {
     private void handleButtonClick(JButton jButton) {
         int index = (jButton.getY() - 60) / 20;
         System.out.println("index = " + index);
-        System.out.println("INSERT INTO TA VALUES(" + this.professorHandler.getInitializer().getEligibleTas().get(index / this.courses.size()).get(0).get(index + 1) + ", \"2020\", \"Fall\", " + this.professorHandler.getInitializer().getCrns().get(index / this.courses.size() + 1) + ");");
-        this.professorHandler.getInitializer().getUpdates().add("INSERT INTO TA VALUES(" + this.professorHandler.getInitializer().getEligibleTas().get(index / this.courses.size()).get(0).get(index + 1) + ", \"2020\", \"Fall\", " + this.professorHandler.getInitializer().getCrns().get(index / this.courses.size() + 1) + ");");
+        System.out.println("DELETE FROM TA WHERE student_id = " + this.professorHandler.getInitializer().getTas().get(index / this.courses.size()).get(0).get(index + 1));
+        this.professorHandler.getInitializer().getUpdates().add("DELETE FROM TA WHERE student_id = " + this.professorHandler.getInitializer().getTas().get(index / this.courses.size()).get(0).get(index + 1));
+//        System.out.println("INSERT INTO TA VALUES(" + this.professorHandler.getInitializer().getTas().get(index / this.courses.size()).get(0).get(index + 1) + ", \"2020\", \"Fall\", " + this.professorHandler.getInitializer().getCrns().get(index / this.courses.size() + 1) + ");");
+//        this.professorHandler.getInitializer().getUpdates().add("INSERT INTO TA VALUES(" + this.professorHandler.getInitializer().getTas().get(index / this.courses.size()).get(0).get(index + 1) + ", \"2020\", \"Fall\", " + this.professorHandler.getInitializer().getCrns().get(index / this.courses.size() + 1) + ");");
 //        if (!this.professorHandler.getInitializer().getTas().get(index / this.courses.size()).get(0).contains(this.professorHandler.getInitializer().getEligibleTas().get(index / this.courses.size()).get(0).get(index + 1))) {
 //            this.professorHandler.getInitializer().getTas().get(index / this.courses.size()).get(0).add(this.professorHandler.getInitializer().getEligibleTas().get(index / this.courses.size()).get(0).get(index + 1));
 //        }
@@ -115,7 +117,7 @@ public class AddTa extends JFrame {
     private void relocate() {
         for (int i = 0; i < this.names.size(); i++) {
             this.names.get(i).setLocation(10, (i * 20) + 30);
-            this.add.get(i).setLocation(100, (i * 20) + 30);
+            this.remove.get(i).setLocation(100, (i * 20) + 30);
         }
         this.repaint();
     }

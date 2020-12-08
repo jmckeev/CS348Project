@@ -95,6 +95,9 @@ public class Main {
                     temp = initializer.getQuery().getTable("EXECUTE getEligibleTas USING @major" + i + ",@id" + i + ";");
                     initializer.getEligibleTas().add(temp);
                     System.out.println(temp);
+
+                    temp = initializer.getQuery().getTable("EXECUTE getCrns USING @major" + i + ",@id" + i + ";");
+                    initializer.setCrns(temp.get(0));
                 }
             }
 
