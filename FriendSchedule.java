@@ -33,7 +33,7 @@ public class FriendSchedule extends JFrame {
         }
         for (int i = 1; i < friendList.size(); i++) {
             String temp = this.studentHandler.getInitializer().addSpaces(friendList.get(i) + ": ");
-            for (int j = 1; j < friendListClasses.get(i).size(); j++) {
+            for (int j = 1; j < friendListClasses.get(i - 1).size(); j++) {
                 temp += friendListClasses.get(i - 1).get(0).get(j) + " " + friendListClasses.get(i - 1).get(1).get(j);
                 if (j != friendListClasses.get(i - 1).size() - 1) {
                     temp += ", ";

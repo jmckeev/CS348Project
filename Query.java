@@ -7,8 +7,9 @@ public class Query {
         this.connection = connection;
     }
 
-    public String sendQuery(String command) {
-        this.connection.getShellStream().println(command);
+    public String sendQuery(String command, String isolationLevel) {
+        this.connection.getShellStream().println("SET TRANSACTION LEVEL " + isolationLevel + ";START TRANSACTION;" + command + "COMMIT;");
+        //this.connection.getShellStream().println(command);
         this.connection.getShellStream().flush();
         try {
             Thread.sleep(1000);
@@ -46,7 +47,7 @@ public class Query {
         return ret;
     }
 
-    public ArrayList<ArrayList<String>> getTable(String command) {
+    public ArrayList<ArrayList<String>> getTable(String command, String isolationLevel) {
         try {
             this.connection.getBaos().reset();
             try {
@@ -54,7 +55,7 @@ public class Query {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            ArrayList<String> columns = this.getColumns(this.sendQuery(command));
+            ArrayList<String> columns = this.getColumns(this.sendQuery(command, isolationLevel));
             if (columns == null) {
                 return null;
             }
@@ -63,7 +64,7 @@ public class Query {
                 ret.add(new ArrayList<>());
                 ret.get(i).add(columns.get(i));
             }
-            String output = this.sendQuery(command);
+            String output = this.sendQuery(command, isolationLevel);
             for (int i = 0; i < 2; i++) {
                 output = output.substring(Math.max(output.indexOf("+"), 0));
                 output = output.substring(Math.max(output.indexOf("|"), 0));
@@ -92,8 +93,8 @@ public class Query {
         }
     }
 
-    public ArrayList<String> getTableColumn(String command, String column) {
-        ArrayList<ArrayList<String>> table = this.getTable(command);
+    public ArrayList<String> getTableColumn(String command, String column, String isolationLevel) {
+        ArrayList<ArrayList<String>> table = this.getTable(command, isolationLevel);
         for (int i = 0; i < table.size(); i++) {
             if (table.get(i).get(0).equals(column)) {
                 return table.get(i);
@@ -102,16 +103,16 @@ public class Query {
         return null;
     }
 
-    public void prepare(String name, String command) {
-        this.sendQuery("PREPARE " + name + " FROM '" + command + "';");
+    public void prepare(String name, String command, String isolationLevel) {
+        this.sendQuery("PREPARE " + name + " FROM '" + command + "';", isolationLevel);
     }
 
-    public void setVariables(String variables) {
+    public void setVariables(String variables, String isolationLevel) {
         String[] individualVariables = variables.split(";");
         for (int i = 0; i < individualVariables.length; i++) {
             //System.out.println(individualVariables.length);
             String[] tokens = individualVariables[i].split(",");
-            this.sendQuery("SET " + tokens[0] + " = '" + tokens[1] + "';");
+            this.sendQuery("SET " + tokens[0] + " = '" + tokens[1] + "';", isolationLevel);
         }
     }
 }

@@ -83,7 +83,10 @@ public class AddTa extends JFrame {
         System.out.println("index = " + index);
         System.out.println("INSERT INTO TA VALUES(" + this.professorHandler.getInitializer().getEligibleTas().get(index / this.courses.size()).get(0).get(index + 1) + ", \"2020\", \"Fall\", " + this.professorHandler.getInitializer().getCrns().get(index / this.courses.size() + 1) + ");");
         this.professorHandler.getInitializer().getUpdates().add("INSERT INTO TA VALUES(" + this.professorHandler.getInitializer().getEligibleTas().get(index / this.courses.size()).get(0).get(index + 1) + ", \"2020\", \"Fall\", " + this.professorHandler.getInitializer().getCrns().get(index / this.courses.size() + 1) + ");");
-//        if (!this.professorHandler.getInitializer().getTas().get(index / this.courses.size()).get(0).contains(this.professorHandler.getInitializer().getEligibleTas().get(index / this.courses.size()).get(0).get(index + 1))) {
+        this.professorHandler.getInitializer().getQuery().prepare("addta", "INSERT INTO TA VALUES(?, \"2020\", \"Fall\", ?)", "READ UNCOMMITTED");
+        this.professorHandler.getInitializer().getQuery().setVariables("@addtaname," + this.professorHandler.getInitializer().getEligibleTas().get(index / this.courses.size()).get(0).get(index + 1) + ";@addcrn," + this.professorHandler.getInitializer().getCrns().get(index / this.courses.size() + 1), "READ UNCOMMITTED");
+        this.professorHandler.getInitializer().getQuery().sendQuery("EXECUTE addta USING @addtaname,@addcrn;", "READ COMMITTED");
+        // if (!this.professorHandler.getInitializer().getTas().get(index / this.courses.size()).get(0).contains(this.professorHandler.getInitializer().getEligibleTas().get(index / this.courses.size()).get(0).get(index + 1))) {
 //            this.professorHandler.getInitializer().getTas().get(index / this.courses.size()).get(0).add(this.professorHandler.getInitializer().getEligibleTas().get(index / this.courses.size()).get(0).get(index + 1));
 //        }
 

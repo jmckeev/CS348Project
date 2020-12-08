@@ -83,7 +83,10 @@ public class RemoveTa extends JFrame {
         System.out.println("index = " + index);
         System.out.println("DELETE FROM TA WHERE student_id = " + this.professorHandler.getInitializer().getTas().get(index / this.courses.size()).get(0).get(index + 1));
         this.professorHandler.getInitializer().getUpdates().add("DELETE FROM TA WHERE student_id = " + this.professorHandler.getInitializer().getTas().get(index / this.courses.size()).get(0).get(index + 1));
-//        System.out.println("INSERT INTO TA VALUES(" + this.professorHandler.getInitializer().getTas().get(index / this.courses.size()).get(0).get(index + 1) + ", \"2020\", \"Fall\", " + this.professorHandler.getInitializer().getCrns().get(index / this.courses.size() + 1) + ");");
+        this.professorHandler.getInitializer().getQuery().prepare("removeta", "DELETE FROM TA WHERE student_id = ?", "READ UNCOMMITTED");
+        this.professorHandler.getInitializer().getQuery().setVariables("@taid," + this.professorHandler.getInitializer().getTas().get(index / this.courses.size()).get(0).get(index + 1), "READ UNCOMMITTED");
+        this.professorHandler.getInitializer().getQuery().sendQuery("EXECUTE removeta USING @taid;", "READ COMMITTED");
+        //        System.out.println("INSERT INTO TA VALUES(" + this.professorHandler.getInitializer().getTas().get(index / this.courses.size()).get(0).get(index + 1) + ", \"2020\", \"Fall\", " + this.professorHandler.getInitializer().getCrns().get(index / this.courses.size() + 1) + ");");
 //        this.professorHandler.getInitializer().getUpdates().add("INSERT INTO TA VALUES(" + this.professorHandler.getInitializer().getTas().get(index / this.courses.size()).get(0).get(index + 1) + ", \"2020\", \"Fall\", " + this.professorHandler.getInitializer().getCrns().get(index / this.courses.size() + 1) + ");");
 //        if (!this.professorHandler.getInitializer().getTas().get(index / this.courses.size()).get(0).contains(this.professorHandler.getInitializer().getEligibleTas().get(index / this.courses.size()).get(0).get(index + 1))) {
 //            this.professorHandler.getInitializer().getTas().get(index / this.courses.size()).get(0).add(this.professorHandler.getInitializer().getEligibleTas().get(index / this.courses.size()).get(0).get(index + 1));

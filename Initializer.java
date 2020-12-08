@@ -59,7 +59,7 @@ public class Initializer {
         this.tas = new ArrayList<>();
         this.eligibleTas = new ArrayList<>();
         this.crns = new ArrayList<>();
-        //this.loadDatabase();
+        this.loadDatabase();
     }
 
     private void setUserPassHost(Authentication authentication) {
@@ -107,7 +107,7 @@ public class Initializer {
 
     private void runFile(String fileName) {
         File file = new File(fileName);
-        StringBuilder end = new StringBuilder();
+        StringBuilder fullQuery = new StringBuilder();
         try {
             FileReader fileReader = new FileReader(file);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
@@ -116,15 +116,16 @@ public class Initializer {
                 if (temp == null) {
                     break;
                 }
-                end.append(temp);
+                fullQuery.append(temp);
             }
+            System.out.println(this.query.sendQuery(fullQuery + "\n", "READ UNCOMMITTED"));
         } catch (IOException e) {
             e.printStackTrace();
         }
-        String[] tokens = end.toString().split(";");
-        for (int i = 0; i < tokens.length; i++) {
-            System.out.println(this.query.sendQuery(tokens[i] + ";\n"));
-        }
+//        String[] tokens = end.toString().split(";");
+//        for (int i = 0; i < tokens.length; i++) {
+//            System.out.println(this.query.sendQuery(tokens[i] + ";\n"));
+//        }
     }
 
     private void writeToFile() {
@@ -135,7 +136,7 @@ public class Initializer {
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
             for (int i = 0; i < this.TABLES.length; i++) {
                 this.connection.getBaos().reset();
-                ArrayList<ArrayList<String>> output = this.query.getTable("SELECT * FROM " + this.TABLES[i] + ";");
+                ArrayList<ArrayList<String>> output = this.query.getTable("SELECT * FROM " + this.TABLES[i] + ";", "READ UNCOMMITTED");
                 if (output != null) {
                     String temp = "INSERT INTO " + this.TABLES[i] + " VALUES\n";
                     for (int j = 1; j < output.get(0).size(); j++) {
@@ -201,7 +202,7 @@ public class Initializer {
 
     private void updateAll() {
         for (int i = 0; i < this.updates.size(); i++) {
-            this.query.sendQuery(this.updates.get(i));
+            this.query.sendQuery(this.updates.get(i), "READ UNCOMMITTED");
             System.out.println(this.updates.get(i));
         }
     }
@@ -322,5 +323,9 @@ public class Initializer {
 
     public void setCrns(ArrayList<String> crns) {
         this.crns = crns;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }

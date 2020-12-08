@@ -1,4 +1,3 @@
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class Main {
@@ -7,12 +6,13 @@ public class Main {
         Prepare prepare = new Prepare(initializer);
 
         if (initializer.option.equals("Student")) {
+            //initializer.setUsername("yuan226");
             prepare.prepareStudent();
             prepare.setVariables("@username," + initializer.getUsername());
 
-            initializer.setName(initializer.addSpaces(initializer.getQuery().getTableColumn("SELECT name FROM Student WHERE student_id = \"" + initializer.getUsername() +  "\";", "name").get(1)));
+            initializer.setName(initializer.addSpaces(initializer.getQuery().getTableColumn("SELECT name FROM Student WHERE student_id = \"" + initializer.getUsername() +  "\";", "name", "READ UNCOMMITTED").get(1)));
 
-            ArrayList<ArrayList<String>> temp = initializer.getQuery().getTable("EXECUTE setCourses USING @username;");
+            ArrayList<ArrayList<String>> temp = initializer.getQuery().getTable("EXECUTE setCourses USING @username;", "READ UNCOMMITTED");
 
             initializer.setCourses(temp);
             for (int i = 1; i < initializer.getCourses().get(0).size(); i++) {
@@ -20,7 +20,7 @@ public class Main {
             }
 
             for (int i = 1; i < initializer.getCourses().get(0).size(); i++) {
-                temp = initializer.getQuery().getTable("EXECUTE setFriendsCourse USING @username,@major" + i + ",@id" + i + ";");
+                temp = initializer.getQuery().getTable("EXECUTE setFriendsCourse USING @username,@major" + i + ",@id" + i + ";", "READ UNCOMMITTED");
                 if (temp == null) {
                     initializer.getFriendsCourse().add(null);
                 } else {
@@ -31,7 +31,7 @@ public class Main {
                 }
 
                 //temp = initializer.getQuery().getTable("SELECT grade FROM Course NATURAL JOIN Takes WHERE student_id = \"" + initializer.getUsername() + "\" AND major = \"" + initializer.getCourses().get(0).get(i) + "\" AND id = \"" + initializer.getCourses().get(1).get(i) + "\";");
-                temp = initializer.getQuery().getTable("EXECUTE setGradesCourse USING @username,@major" + i + ",@id" + i + ";");
+                temp = initializer.getQuery().getTable("EXECUTE setGradesCourse USING @username,@major" + i + ",@id" + i + ";", "READ UNCOMMITTED");
                 if (temp == null) {
                     initializer.getGradesCourse().add(null);
                 } else {
@@ -40,7 +40,7 @@ public class Main {
                     }
                 }
 
-                temp = initializer.getQuery().getTable("EXECUTE setDueDatesAssignments USING @major" + i + ",@id" + i + ";");
+                temp = initializer.getQuery().getTable("EXECUTE setDueDatesAssignments USING @major" + i + ",@id" + i + ";", "READ UNCOMMITTED");
                 if (temp == null) {
                     initializer.getDueDatesAssignments().add(null);
                 } else {
@@ -50,7 +50,7 @@ public class Main {
                 }
             }
 
-            temp = initializer.getQuery().getTable("EXECUTE setFriendList USING @username;");
+            temp = initializer.getQuery().getTable("EXECUTE setFriendList USING @username;", "READ UNCOMMITTED");
             if (temp == null) {
                 initializer.setFriendList(null);
                 initializer.setFriendListClasses(null);
@@ -58,12 +58,12 @@ public class Main {
                 initializer.setFriendList(temp.get(0));
                 for (int i = 1; i < initializer.getFriendList().size(); i++) {
                     prepare.setVariables("@friend" + i + "," + initializer.addSpaces(initializer.getFriendList().get(i)));
-                    temp = initializer.getQuery().getTable("EXECUTE setFriendListClasses USING @friend" + i + ";");
+                    temp = initializer.getQuery().getTable("EXECUTE setFriendListClasses USING @friend" + i + ";", "READ UNCOMMITTED");
                     initializer.getFriendListClasses().add(temp);
                 }
             }
 
-            temp = initializer.getQuery().getTable("EXECUTE findFriends USING @username,@username;");
+            temp = initializer.getQuery().getTable("EXECUTE findFriends USING @username,@username;", "READ UNCOMMITTED");
             if (temp == null) {
                 initializer.setNewFriends(null);
             } else {
@@ -74,11 +74,10 @@ public class Main {
         } else {
             prepare.prepareProfessor();
             prepare.setVariables("@username," + initializer.getUsername());
-            initializer.setName(initializer.addSpaces(initializer.getQuery().getTableColumn("SELECT name FROM Professor WHERE professor_id = \"hbenotma\";", "name").get(1)));
-            ArrayList<ArrayList<String>> temp = initializer.getQuery().getTable("SELECT major, id FROM Professor NATURAL JOIN Teaches NATURAL JOIN Course WHERE professor_id = \"hbenotma\";");
-            //ArrayList<ArrayList<String>> temp = initializer.getQuery().getTable("EXECUTE getCourses USING @username");
+            initializer.setName(initializer.addSpaces(initializer.getQuery().getTableColumn("SELECT name FROM Professor WHERE professor_id = \"hbenotma\";", "name", "READ UNCOMMITTED").get(1)));
+            //ArrayList<ArrayList<String>> temp = initializer.getQuery().getTable("SELECT major, id FROM Professor NATURAL JOIN Teaches NATURAL JOIN Course WHERE professor_id = \"hbenotma\";");
+            ArrayList<ArrayList<String>> temp = initializer.getQuery().getTable("EXECUTE getCourses USING @username", "READ UNCOMMITTED");
             if (temp == null) {
-                System.out.println("here");
                 initializer.setProfessorCourses(null);
                 initializer.setTas(null);
             }
@@ -89,14 +88,14 @@ public class Main {
                 }
 
                 for (int i = 1; i < initializer.getProfessorCourses().get(0).size(); i++) {
-                    temp = initializer.getQuery().getTable("EXECUTE findTas USING @major" + i + ",@id" + i + ";");
+                    temp = initializer.getQuery().getTable("EXECUTE findTas USING @major" + i + ",@id" + i + ";", "READ UNCOMMITTED");
                     initializer.getTas().add(temp);
 
-                    temp = initializer.getQuery().getTable("EXECUTE getEligibleTas USING @major" + i + ",@id" + i + ";");
+                    temp = initializer.getQuery().getTable("EXECUTE getEligibleTas USING @major" + i + ",@id" + i + ";", "READ UNCOMMITTED");
                     initializer.getEligibleTas().add(temp);
                     System.out.println(temp);
 
-                    temp = initializer.getQuery().getTable("EXECUTE getCrns USING @major" + i + ",@id" + i + ";");
+                    temp = initializer.getQuery().getTable("EXECUTE getCrns USING @major" + i + ",@id" + i + ";", "READ UNCOMMITTED");
                     initializer.setCrns(temp.get(0));
                 }
             }

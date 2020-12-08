@@ -11,8 +11,8 @@ INSERT INTO Professor VALUES
 ("turkstra", "Jeffrey Turkstra", "turkstra@purdue.edu");
 
 INSERT INTO Course VALUES
-("hbenotma", "CS", "34800", 2020, "Fall", "11374"),
-("jblocki", "CS", "38100", 2020, "Fall", "13247");
+("CS", "34800", 2020, "Fall", "11374"),
+("CS", "38100", 2020, "Fall", "13247");
 
 INSERT INTO Takes VALUES
 ("anishiho", 2020, "Fall", "11374", "NULL"),

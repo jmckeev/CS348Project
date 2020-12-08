@@ -16,7 +16,7 @@ public class Add extends JFrame {
         if (this.studentHandler.getInitializer().getNewFriends() == null) {
             this.names.add(new JLabel("No suggestions"));
         } else {
-            for (int i = 1; i < this.studentHandler.getInitializer().getNewFriends().get(0).size(); i++) {
+            for (int i = 1; i < Math.min(this.studentHandler.getInitializer().getNewFriends().get(0).size(), 15); i++) {
                 this.names.add(new JLabel(studentHandler.getInitializer().addSpaces(studentHandler.getInitializer().getNewFriends().get(0).get(i))));
                 this.add.add(new JButton("Add"));
             }
@@ -75,6 +75,10 @@ public class Add extends JFrame {
         }
         if (!this.studentHandler.getInitializer().getFriendList().contains(this.names.get(index).getText())) {
             this.studentHandler.getInitializer().getFriendList().add(this.names.get(index).getText());
+            this.studentHandler.getInitializer().getUpdates().add("INSERT INTO Friend VALUES(" + this.studentHandler.getInitializer().getUsername() + ", " + this.studentHandler.getInitializer().getNewFriends().get(1).get(index + 1) + ");");
+            this.studentHandler.getInitializer().getQuery().prepare("insertFriend", "INSERT INTO Friend VALUES(?, ?)", "READ UNCOMMITTED");
+            this.studentHandler.getInitializer().getQuery().setVariables("@friendname," + this.studentHandler.getInitializer().getNewFriends().get(1).get(index + 1), "READ UNCOMMITTED");
+            this.studentHandler.getInitializer().getQuery().sendQuery("EXECUTE insertFriend USING @username,@friendname;", "READ COMMITTED");
         }
 //        int index2 = this.studentHandler.getInitializer().getNewFriends().get(0).indexOf(this.names.get(index).getText());
 //        this.studentHandler.getInitializer().getNewFriends().get(0).remove(index2);
