@@ -33,19 +33,6 @@ values (default, 2020, 'Fall', 11374, 'project part 2 due', null, 20201023000000
 insert into Assignment(assginment_id, academic, semester, CRN, description, weight, due_date)
 values (default, 2020, 'Fall', 11374, 'project part 3 due', null, 20201208000000);
 
-INSERT INTO Team VALUES
-(1, "anishiho", 1),
-(1, "jmckeev", 1),
-(1, "su170", 1),
-(1, "yuan226", 1),
-(1, "anishiho", 2),
-(1, "jmckeev", 2),
-(1, "su170", 2),
-(1, "yuan226", 2),
-(1, "anishiho", 3),
-(1, "jmckeev", 3),
-(1, "su170", 3),
-(1, "yuan226", 3);
 
 INSERT INTO Friend VALUES
 ("yuan226", "anishiho"),
