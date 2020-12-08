@@ -88,7 +88,6 @@ public class Initializer {
                 e.printStackTrace();
             }
         }
-        System.out.println("baos = " + new String(this.connection.getBaos().toByteArray()));
         this.connection.getBaos().reset();
     }
 
@@ -118,14 +117,9 @@ public class Initializer {
                 }
                 fullQuery.append(temp);
             }
-            System.out.println(this.query.sendQuery(fullQuery + "\n", "READ UNCOMMITTED"));
         } catch (IOException e) {
             e.printStackTrace();
         }
-//        String[] tokens = end.toString().split(";");
-//        for (int i = 0; i < tokens.length; i++) {
-//            System.out.println(this.query.sendQuery(tokens[i] + ";\n"));
-//        }
     }
 
     private void writeToFile() {
@@ -151,7 +145,6 @@ public class Initializer {
                                 }
                             } catch (NumberFormatException e) {
                                 temp += "\"" + this.addSpaces(output.get(k).get(j)) + "\"";
-                                //System.out.println("NEW TEMP = " + this.addSpaces(output.get(k).get(j)));
                             }
                             if (k != output.size() - 1) {
                                 temp += ", ";
@@ -203,7 +196,6 @@ public class Initializer {
     private void updateAll() {
         for (int i = 0; i < this.updates.size(); i++) {
             this.query.sendQuery(this.updates.get(i), "READ UNCOMMITTED");
-            System.out.println(this.updates.get(i));
         }
     }
 
@@ -218,8 +210,6 @@ public class Initializer {
 
     public String getUsername() { return this.username; }
 
-    public String getPassword() { return this.password; }
-
     public void setCourses(ArrayList<ArrayList<String>> courses) {
         this.courses = courses;
     }
@@ -232,25 +222,13 @@ public class Initializer {
         return friendsCourse;
     }
 
-    public void setFriendsCourse(ArrayList<ArrayList<String>> friendsCourse) {
-        this.friendsCourse = friendsCourse;
-    }
-
     public ArrayList<ArrayList<String>> getGradesCourse() {
         return gradesCourse;
-    }
-
-    public void setGradesCourse(ArrayList<ArrayList<String>> gradesCourse) {
-        this.gradesCourse = gradesCourse;
     }
 
     public ArrayList<ArrayList<ArrayList<String>>> getDueDatesAssignments() {
         return dueDatesAssignments;
     }
-
-//    public void setDueDatesAssignments(ArrayList<ArrayList<String>> dueDatesAssignments) {
-//        this.dueDatesAssignments = dueDatesAssignments;
-//    }
 
 
     public ArrayList<String> getFriendList() {
@@ -289,10 +267,6 @@ public class Initializer {
         return updates;
     }
 
-    public void setUpdates(ArrayList<String> updates) {
-        this.updates = updates;
-    }
-
     public ArrayList<ArrayList<String>> getProfessorCourses() {
         return professorCourses;
     }
@@ -311,10 +285,6 @@ public class Initializer {
 
     public ArrayList<ArrayList<ArrayList<String>>> getEligibleTas() {
         return eligibleTas;
-    }
-
-    public void setEligibleTas(ArrayList<ArrayList<ArrayList<String>>> eligibleTas) {
-        this.eligibleTas = eligibleTas;
     }
 
     public ArrayList<String> getCrns() {

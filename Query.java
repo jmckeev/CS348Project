@@ -110,7 +110,6 @@ public class Query {
     public void setVariables(String variables, String isolationLevel) {
         String[] individualVariables = variables.split(";");
         for (int i = 0; i < individualVariables.length; i++) {
-            //System.out.println(individualVariables.length);
             String[] tokens = individualVariables[i].split(",");
             this.sendQuery("SET " + tokens[0] + " = '" + tokens[1] + "';", isolationLevel);
         }

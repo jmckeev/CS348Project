@@ -18,8 +18,6 @@ public class Authentication extends JFrame {
 
     public Authentication(Component component) {
         this.loginInformation = new String[2];
-        //this.encryption = new Encryption("40674244454045cb9a70040a30e1c007".getBytes(),
-                                         //"@1B2c3D4e5F6g7H8".getBytes());
         this.setTitle("Login");
         this.jPanel = new JPanel();
         this.loginButton = new JButton("Login");
@@ -45,8 +43,6 @@ public class Authentication extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 while (true) {
-                    //loginInformation[0] = encryption.encrypt(usernameField.getText().getBytes());
-                    //loginInformation[1] = encryption.encrypt(new String(passwordField.getPassword()).getBytes());
                     loginInformation[0] = usernameField.getText();
                     loginInformation[1] = new String(passwordField.getPassword());
                     if (loginInformation[0] != null && loginInformation[1] != null) {
@@ -103,16 +99,11 @@ public class Authentication extends JFrame {
         return this.loginInformation;
     }
 
-    /*public Encryption getEncryption() {
-        return this.encryption;
-    }*/
-
     public void cleanup() {
         this.dispose();
     }
 
     public void incorrect() {
-        //this.passwordField.setText("");
         JLabel incorrectString = new JLabel("Username or password incorrect");
         incorrectString.setLocation(75, 50);
         incorrectString.setSize(200, 100);

@@ -15,7 +15,7 @@ INSERT INTO Course VALUES
 ("CS", "38100", 2020, "Fall", "13247");
 
 INSERT INTO Takes VALUES
-("anishiho", 2020, "Fall", "11374", "NULL"),
+("anishiho", 2020, "Fall", "11374", "A"),
 ("jmckeev", 2020, "Fall", "11374", "NULL"),
 ("su170", 2020, "Fall", "11374", "NULL"),
 ("yuan226", 2020, "Fall", "11374", "NULL");

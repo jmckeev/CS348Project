@@ -25,12 +25,10 @@ public class Main {
                     initializer.getFriendsCourse().add(null);
                 } else {
                     for (int j = 0; j < temp.size(); j++) {
-                        //System.out.println(temp.get(j));
                         initializer.getFriendsCourse().add(temp.get(j));
                     }
                 }
 
-                //temp = initializer.getQuery().getTable("SELECT grade FROM Course NATURAL JOIN Takes WHERE student_id = \"" + initializer.getUsername() + "\" AND major = \"" + initializer.getCourses().get(0).get(i) + "\" AND id = \"" + initializer.getCourses().get(1).get(i) + "\";");
                 temp = initializer.getQuery().getTable("EXECUTE setGradesCourse USING @username,@major" + i + ",@id" + i + ";", "READ UNCOMMITTED");
                 if (temp == null) {
                     initializer.getGradesCourse().add(null);
@@ -72,11 +70,11 @@ public class Main {
             StudentDriver studentDriver = new StudentDriver(initializer);
             prepare.deallocateStudent();
         } else {
+            //initializer.setUsername("hbenotma");
             prepare.prepareProfessor();
             prepare.setVariables("@username," + initializer.getUsername());
-            initializer.setName(initializer.addSpaces(initializer.getQuery().getTableColumn("SELECT name FROM Professor WHERE professor_id = \"hbenotma\";", "name", "READ UNCOMMITTED").get(1)));
-            //ArrayList<ArrayList<String>> temp = initializer.getQuery().getTable("SELECT major, id FROM Professor NATURAL JOIN Teaches NATURAL JOIN Course WHERE professor_id = \"hbenotma\";");
-            ArrayList<ArrayList<String>> temp = initializer.getQuery().getTable("EXECUTE getCourses USING @username", "READ UNCOMMITTED");
+            initializer.setName(initializer.addSpaces(initializer.getQuery().getTableColumn("SELECT name FROM Professor WHERE professor_id = \"" + initializer.getUsername() + "" + "\";", "name", "READ UNCOMMITTED").get(1)));
+            ArrayList<ArrayList<String>> temp = initializer.getQuery().getTable("SELECT major, id FROM Professor NATURAL JOIN Teaches NATURAL JOIN Course WHERE professor_id = \"" + initializer.getUsername() + "\";", "READ UNCOMMITTED");
             if (temp == null) {
                 initializer.setProfessorCourses(null);
                 initializer.setTas(null);
@@ -93,24 +91,14 @@ public class Main {
 
                     temp = initializer.getQuery().getTable("EXECUTE getEligibleTas USING @major" + i + ",@id" + i + ";", "READ UNCOMMITTED");
                     initializer.getEligibleTas().add(temp);
-                    System.out.println(temp);
 
                     temp = initializer.getQuery().getTable("EXECUTE getCrns USING @major" + i + ",@id" + i + ";", "READ UNCOMMITTED");
                     initializer.setCrns(temp.get(0));
                 }
             }
 
-//            for (int i = 0; i < initializer.getEligibleTas().size(); i++) {
-//                for (int j = 0; j < initializer.getEligibleTas().get(i).size(); j++) {
-//                    for (int k = 0; k < initializer.getEligibleTas().get(i).get(j).size(); k++) {
-//                        System.out.println("i = " + i + "\nj = " + j + "\nk = " + k + "\n" + initializer.getEligibleTas().get(i).get(j).get(k));
-//                    }
-//                }
-//            }
-
             ProfessorDriver professorDriver = new ProfessorDriver(initializer);
             prepare.deallocateProfessor();
         }
-        //initializer.cleanup();
     }
 }

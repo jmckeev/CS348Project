@@ -66,10 +66,7 @@ public class Add extends JFrame {
 
     private void handleButtonClick(JButton jButton) {
         int index = (jButton.getY() - 30) / 20;
-        System.out.println("index = " + index);
         this.studentHandler.getInitializer().getUpdates().add("INSERT INTO Friend VALUES(" + this.studentHandler.getInitializer().getUsername() + ", " + this.studentHandler.getInitializer().getNewFriends().get(1).get(index + 1) + ");");
-//        this.names.get(index).setVisible(false);
-//        this.add.get(index).setVisible(false);
         if (this.studentHandler.getInitializer().getFriendList() == null) {
             this.studentHandler.getInitializer().initializeFriendList();
         }
@@ -80,19 +77,5 @@ public class Add extends JFrame {
             this.studentHandler.getInitializer().getQuery().setVariables("@friendname," + this.studentHandler.getInitializer().getNewFriends().get(1).get(index + 1), "READ UNCOMMITTED");
             this.studentHandler.getInitializer().getQuery().sendQuery("EXECUTE insertFriend USING @username,@friendname;", "READ COMMITTED");
         }
-//        int index2 = this.studentHandler.getInitializer().getNewFriends().get(0).indexOf(this.names.get(index).getText());
-//        this.studentHandler.getInitializer().getNewFriends().get(0).remove(index2);
-//        this.studentHandler.getInitializer().getNewFriends().get(1).remove(index2);
-//        this.names.remove(index);
-//        this.add.remove(index);
-//        this.relocate();
-    }
-
-    private void relocate() {
-        for (int i = 0; i < this.names.size(); i++) {
-            this.names.get(i).setLocation(10, (i * 20) + 30);
-            this.add.get(i).setLocation(100, (i * 20) + 30);
-        }
-        this.repaint();
     }
 }

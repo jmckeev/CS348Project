@@ -66,21 +66,9 @@ public class Remove extends JFrame {
 
     private void handleButtonClick(JButton jButton) {
         int index = (jButton.getY() - 30) / 20;
-        System.out.println("index = " + index);
         this.studentHandler.getInitializer().getUpdates().add("DELETE FROM Friend WHERE main = " + this.studentHandler.getInitializer().getUsername() + " AND target = " + this.studentHandler.getInitializer().getFriendList().get(index) + ";");
         this.studentHandler.getInitializer().getQuery().prepare("removeFriend", "DELETE FROM Friend WHERE main = ? AND target = ?", "READ UNCOMMITTED");
         this.studentHandler.getInitializer().getQuery().setVariables("@removename," + this.studentHandler.getInitializer().getFriendList().get(index), "READ UNCOMMITTED");
         this.studentHandler.getInitializer().getQuery().sendQuery("EXECUTE removefriend USING @username,@removename;", "READ COMMITTED");
-        //        this.names.remove(index);
-//        this.remove.remove(index);
-//        this.relocate();
-        //this.studentHandler.getInitializer().getFriendList().remove(this.names.get(index).getText());
-    }
-
-    private void relocate() {
-        for (int i = 0; i < this.names.size(); i++) {
-            this.names.get(i).setLocation(10, (i * 20) + 30);
-            this.remove.get(i).setLocation(100, (i * 20) + 30);
-        }
     }
 }
