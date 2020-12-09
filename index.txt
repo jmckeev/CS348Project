@@ -1,1 +1,8 @@
-
+CREATE INDEX i1 ON Assignment (CRN) USING HASH;
+CREATE INDEX i2 ON Course (major) USING HASH;
+CREATE INDEX i3 ON Friend (main) USING BTREE;
+CREATE INDEX i4 ON Professor (professor_id) USING BTREE;
+CREATE INDEX i5 ON Student (student_id) USING BTREE;
+CREATE INDEX i6 ON TA (student_id) USING BTREE;
+CREATE INDEX i7 ON Takes (student_id) USING BTREE;
+CREATE INDEX i8 ON Teaches (professor_id) USING BTREE;
