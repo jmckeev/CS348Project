@@ -77,16 +77,6 @@ create table Assignment
     foreign key (academic, semester, CRN) references Course (academic, semester, CRN)
 )charset=UTF8;
 
-create table Team
-(
-    team_id   int        not null,
-    student_id varchar(8) not null,
-    assginment_id     int,
-    primary key (team_id, student_id, assginment_id),
-    foreign key (student_id) references Student (student_id),
-    foreign key (assginment_id) references Assignment (assginment_id)
-)charset=UTF8;
-
 create table Friend
 (
     main   varchar(8) not null,
